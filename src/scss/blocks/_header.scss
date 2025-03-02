@@ -1,0 +1,59 @@
+@use './helpers/abstracts' as *;
+
+.header{
+    padding: 3rem 10rem;
+    background-color: $color_accent;
+}
+.header_in{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    display: block;
+    width: 22.8rem;
+    height: 4.8rem;
+    .logo__img{
+        @extend %contain_img;
+    }
+}
+.header_nav__list{
+    display: flex;
+    align-items: center;
+    column-gap: 4rem;
+}
+.header_nav__link{
+font-size: 2rem;
+color: $color_white;
+text-decoration: none;
+}
+.phone{
+font-weight: 600;
+font-size: 3rem;
+color: $color_white;
+}
+.for_mobile{
+    display: none;
+}
+.for_mobile__button,
+.for_mobile__phone{
+    display: block;
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 1rem;
+    background: rgba( $color_accent, 0.92);
+}
+.for_mobile__phone{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gradient_wrap{
+display: flex;
+align-items: center;
+justify-content: center;
+width: 4.4rem;
+height: 4.4rem;
+border-radius: 1rem;
+background: linear-gradient(#FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+}
