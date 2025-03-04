@@ -30,10 +30,13 @@ body {
 .section {
 	width: 100%;
 	padding: 12rem 0;
-	&.section--hero{
+	&.section--hero {
 		padding-top: 5.5rem;
 		padding-bottom: 0;
 		background-color: $color_accent;
+	}
+	&.section--grey_bg {
+		background-color: $color_grey;
 	}
 }
 
@@ -42,16 +45,19 @@ body {
 	width: 100%;
 	padding: 0 2rem;
 	margin: 0 auto;
-	&.container--hero{
+	&.container--hero {
 		max-width: 123.3rem;
 	}
 }
-.content__row_title{
+.content__row_title {
 	margin-bottom: 6rem;
 }
-.content__row_cards{
-    display: flex;
-    column-gap: 4rem;
+.content__row_cards {
+	display: flex;
+	column-gap: 4rem;
+	&.content__row_cards--pro{
+		align-items: center;
+	}
 }
 
 .main_font {
@@ -63,5 +69,10 @@ body {
 	font-weight: 600;
 	font-size: 5rem;
 	line-height: 1.6;
+	color: $color_black;
+}
+.card__title {
+	font-weight: 600;
+	font-size: 2.4rem;
 	color: $color_black;
 }

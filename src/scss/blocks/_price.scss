@@ -1,0 +1,47 @@
+@use './helpers/abstracts' as *;
+
+.price_card {
+	width: calc(100% / 3 - 4rem * (3 - 1) / 3);
+    height: fit-content;
+    padding: 4rem;
+	border-radius: 2rem;
+	border: 1px solid rgba($color_accent, 0.2);
+	&.price_card--pro {
+		background-color: $color_accent;
+	}
+}
+.price_card__package {
+	font-weight: 600;
+	font-size: 3rem;
+	text-align: center;
+	color: $color_accent;
+	margin-bottom: 6.3rem;
+	&.price_card__package--pro{
+		color: $color_white;
+		margin-bottom: 8.3rem;
+	}
+}
+.price_card__price {
+	font-weight: 600;
+	font-size: 5rem;
+	text-align: center;
+	margin-bottom: 2rem;
+	color: $color_accent;
+	&.price_card__price--pro {
+		color: $color_white;
+	}
+}
+.price_card__descr{
+    color: $color_accent;
+    text-align: center;
+    margin-bottom: 6rem;
+    &.price_card__descr--pro{
+        color: $color_white;
+        margin-bottom: 5.2rem;
+    }
+}
+.price_card__btn{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
