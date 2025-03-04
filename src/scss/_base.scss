@@ -30,13 +30,21 @@ body {
 .section {
 	width: 100%;
 	padding: 12rem 0;
+	&.section--hero{
+		padding-top: 5.5rem;
+		padding-bottom: 0;
+		background-color: $color_accent;
+	}
 }
 
 .container {
-	max-width: 1200rem;
+	max-width: 120rem;
 	width: 100%;
 	padding: 0 2rem;
 	margin: 0 auto;
+	&.container--hero{
+		max-width: 123.3rem;
+	}
 }
 .main_font {
 	font-size: 1.8rem;

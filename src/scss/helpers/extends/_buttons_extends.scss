@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../mixins/breakpoints' as *;
+
 @mixin st_btn {
 	display: inline-flex;
 	justify-content: center;
@@ -10,35 +13,51 @@
 	text-decoration: none;
 }
 
-//color extends
-// %transp_btn_1 {
-// 	@include st_btn;
+// color extends
+%red_btn {
+	@include st_btn;
 
-// 	font-weight: 700;
-// 	color: $color_white;
-// 	background-color: transparent;
-// 	transition: 0.3s ease;
-// 	border: 2px solid $color_white;
+	font-weight: 400;
+	color: $color_white;
+	background-color: $color_red;
+	transition: 0.3s ease;
+	border: 2px solid $color_red;
 
-// 	&:hover {
-// 		background-color: $color_white;
-// 		color: $color_black;
-// 	}
-// }
+	&:hover {
+		background-color: $color_white;
+		color: $color_black;
+	}
+}
 
-//size extends
-// %btn_size_1 {
-// 	min-width: 23.2rem;
-// 	height: 5.4rem;
-// 	padding: 0 2rem;
+// size extends
+%btn_size_1 {
+	min-width: 26rem;
+	height: 7.9rem;
+	padding: 0 2.5rem;
 
-// 	line-height: 5.4rem;
-// 	font-size: 1.6rem;
+	line-height: 7.9rem;
+	font-size: 1.8rem;
 
-// 	border-radius: 2px;
-// }
+	border-radius: 0.5rem;
+}
 
-// .btn_white_1 {
-// 	@extend %white_btn_1;
-// 	@extend %btn_size_1;
-// }
+%btn_size_2 {
+	min-width: 28rem;
+	height: 7.9rem;
+	padding: 0 2.5rem;
+
+	line-height: 7.9rem;
+	font-size: 1.8rem;
+
+	border-radius: 0.5rem;
+}
+
+.btn_base {
+	@extend %red_btn;
+	@extend %btn_size_1;
+}
+
+.btn_base--big{
+	@extend %red_btn;
+	@extend %btn_size_2;
+}
