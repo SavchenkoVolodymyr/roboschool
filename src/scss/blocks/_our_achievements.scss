@@ -1,0 +1,18 @@
+@use './helpers/abstracts' as *;
+
+.our_achievements__descr {
+	font-weight: 400;
+	font-size: 3rem;
+	color: $color_black;
+	& > span {
+		font-weight: 600;
+	}
+}
+.our_achievements_card {
+	width: calc(100% / 4 - 4rem * (4 - 1) / 4);
+}
+.our_achievements_card__num{
+font-weight: 600;
+font-size: 7rem;
+color: $color_red;
+}

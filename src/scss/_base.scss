@@ -46,6 +46,14 @@ body {
 		max-width: 123.3rem;
 	}
 }
+.content__row_title{
+	margin-bottom: 6rem;
+}
+.content__row_cards{
+    display: flex;
+    column-gap: 4rem;
+}
+
 .main_font {
 	font-size: 1.8rem;
 	line-height: 1.6;
