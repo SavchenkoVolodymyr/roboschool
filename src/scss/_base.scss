@@ -64,6 +64,9 @@ body {
 	font-size: 1.8rem;
 	line-height: 1.6;
 	color: $color_black;
+	&.main_font--red{
+		color: $color_red;
+	}
 }
 .section_title_font {
 	font-weight: 600;
