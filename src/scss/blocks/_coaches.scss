@@ -1,66 +1,94 @@
 @use './helpers/abstracts' as *;
 
+.coaches_content {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 116rem;
+	height: 74.6rem;
+	overflow: hidden;
+	background-color: aquamarine;
+}
+.slider__line {
+	position: relative;
+	left: 0;
+	display: flex;
+	column-gap: 4rem;
+	width: 196rem;
+	height: 64.6rem;
+	margin-bottom: 6rem;
+	background-color: aqua;
+}
+.slider__element {
+	width: 36rem;
+	height: 64.6rem;
+}
+.coach__pic {
+	display: block;
+	width: 36rem;
+	height: 50rem;
+	border-radius: 2rem;
+	overflow: hidden;
+	margin-bottom: 2rem;
+	background-color: $color_grey;
+	.coach__img {
+		@extend %cover_img;
+	}
+}
+.coach__name {
+	margin-bottom: 1rem;
+}
+.coach__specialization {
+	margin-bottom: 2rem;
+}
+.coach__button {
+	font-family: $font_1;
+	color: $color_red;
+}
 
-.coaches_content{
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 116rem;
-    height: 74.6rem;
-    overflow: hidden;
-    background-color: aquamarine;
+.slider__nav_wrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
-.slider__line{
-    position: relative;
-    left: 0;
-    display: flex;
-    column-gap: 4rem;
-    width: 196rem;
-    height: 64.6rem;
-    margin-bottom: 6rem;
-    background-color: aqua;
-}
-.slider__element{
-    width: 36rem;
-    height: 64.6rem;
-}
-.coach__pic{
-    display: block;
-    width: 36rem;
-    height: 50rem;
-    border-radius: 2rem;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    background-color: $color_grey;
-    .coach__img{
-        @extend %cover_img;
-    }
-}
-.coach__name{
-    margin-bottom: 1rem;
-}
-.coach__specialization{
-    margin-bottom: 2rem;
-}
-.coach__button{
-    font-family: $font_1;
-    color: $color_red;
-}
-
-.slider__nav_wrap{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.slider_nav__button{
-    display: flex;
-    column-gap: 1.2rem;
+.slider_nav__button {
+	display: flex;
+	column-gap: 1.2rem;
 }
 .slider_nav__prew,
-.slider_nav__next{
-    display: block;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    background-color: $color_black;
+.slider_nav__next {
+	display: block;
+	position: relative;
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	background-color: $color_black;
+    &>span{
+        display: block;
+        position: absolute;
+        width: 1rem;
+        height: 0.4rem;
+        border-radius: 0.2rem;
+        background-color: $color_white;  
+    }
+}
+.slider_nav__prew > span:nth-child(1) {
+	left: 1.4rem;
+	top: 2rem;
+	transform: rotate(45deg);
+}
+.slider_nav__prew > span:nth-child(2) {
+	left: 1.4rem;
+	top: 1.5rem;
+	transform: rotate(-45deg);
+}
+.slider_nav__next > span:nth-child(1) {
+	left: 1.4rem;
+	top: 2rem;
+	transform: rotate(-45deg);
+}
+.slider_nav__next > span:nth-child(2) {
+	left: 1.4rem;
+	top: 1.5rem;
+	transform: rotate(45deg);
 }
