@@ -7,7 +7,6 @@
 	width: 116rem;
 	height: 74.6rem;
 	overflow: hidden;
-	background-color: aquamarine;
 }
 .slider__line {
 	position: relative;
@@ -17,7 +16,7 @@
 	width: 196rem;
 	height: 64.6rem;
 	margin-bottom: 6rem;
-	background-color: aqua;
+    transition: all $transition_dur ease-in-out;
 }
 .slider__element {
 	width: 36rem;
