@@ -91,3 +91,19 @@
 	top: 1.5rem;
 	transform: rotate(45deg);
 }
+.slider_nav__scroll_bar{
+	width: 36rem;
+	height: 0.5rem;
+	border-radius: 4rem;
+	background-color: $color_grey;
+	& > span{
+		display: block;
+		position: relative;
+		left: 0;
+		width: 21.6rem;
+		height: 0.5rem;
+		border-radius: 4rem;
+		transition: all $transition_dur ease-in-out;
+		background-color: $color_black;
+	}
+}

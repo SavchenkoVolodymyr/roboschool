@@ -4,18 +4,32 @@ const body = document.querySelector('body');
 
 function coachesSlider() {
 	let offset = 0;
+	let scrollOfset = 0;
 	const sliderLine = document.querySelector('.slider__line');
-	let gap = parseInt(getComputedStyle(sliderLine).columnGap);
+	const gap = parseInt(getComputedStyle(sliderLine).columnGap);
 	const elemWidht = document.querySelector('.slider__element').clientWidth;
 	const numberOfElem = document.querySelectorAll('.slider__element').length;
 	const btnPrev = document.querySelector('.slider_nav__prew');
 	const btnNext = document.querySelector('.slider_nav__next');
+	const scrollBarWidht = document.querySelector('.scroll_bar').clientWidth;
+	const scroll = document.querySelector('.scroll_bar').firstElementChild;
+	console.log(scrollBarWidht);
+	
+	
+
 	btnNext.addEventListener('click', function () {
 		offset = offset + (elemWidht + gap);
 		if (offset > (numberOfElem - 3) * (elemWidht + gap)) {
-			offset = 0;
+			offset = 0;	
 		}
 		sliderLine.style.left = -offset + 'px';
+
+		scrollOfset = scrollOfset + ( (scrollBarWidht - scroll.clientWidth) / 2)
+		if (scrollOfset > (scrollBarWidht - scroll.clientWidth)){
+			scrollOfset = 0
+		}
+		scroll.style.left = scrollOfset + 'px';
+		// scrollSlider ()
 	});
 	btnPrev.addEventListener('click', function () {
 		offset = offset - (elemWidht + gap);
@@ -23,6 +37,15 @@ function coachesSlider() {
 			offset = (numberOfElem - 3) * (elemWidht + gap);
 		}
 		sliderLine.style.left = -offset + 'px';
+
+		scrollOfset = scrollOfset - ( (scrollBarWidht - scroll.clientWidth) / 2)
+		if (scrollOfset < 0) {
+			scrollOfset = scrollBarWidht - scroll.clientWidth;
+		}
+		scroll.style.left = scrollOfset + 'px';
+		// scrollSlider ()
 	});
+	
 }
 coachesSlider();
+
