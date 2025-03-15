@@ -67,6 +67,9 @@ body {
 	&.main_font--red{
 		color: $color_red;
 	}
+	&.main_font--popup{
+		color: rgba($color_accent, 0.7);
+	}
 }
 .section_title_font {
 	font-weight: 600;
