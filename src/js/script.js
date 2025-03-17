@@ -13,7 +13,6 @@ function coachesSlider() {
 	const btnNext = document.querySelector('.slider_nav__next');
 	const scrollBarWidht = document.querySelector('.scroll_bar').clientWidth;
 	const scroll = document.querySelector('.scroll_bar').firstElementChild;
-	console.log(scrollBarWidht);
 
 	btnNext.addEventListener('click', function () {
 		offset = offset + (elemWidht + gap);
@@ -51,6 +50,7 @@ function cardTabs() {
 	tabsBox.forEach(function (tabs) {
 		const tabsNavAll = tabs.querySelectorAll('[data-tab]');
 		const tabsContentAll = tabs.querySelectorAll('[data-tab-content]');
+
 		tabsNavAll.forEach(function (item) {
 			item.addEventListener('click', function (event) {
 				if (item.classList.contains('active')) return;
@@ -69,3 +69,30 @@ function cardTabs() {
 	});
 }
 cardTabs();
+
+function showPopup() {
+	const popupButtonAll = document.querySelectorAll('[data-popup-button]');
+	const popupAll = document.querySelectorAll('[data-popup]');
+
+	popupButtonAll.forEach(function (element) {
+		element.addEventListener('click', function (e) {
+			let popupButtonData = e.target.dataset.popupButton;
+			document.querySelector('#' + popupButtonData).classList.add('active');
+		});
+	});
+
+	popupAll.forEach(function (element) {
+		element.querySelector('[data-popup-close]').addEventListener('click', function () {
+			element.classList.remove('active');
+		});
+
+		element.addEventListener('click', function () {
+			element.classList.remove('active');
+		});
+
+		element.querySelector('[data-popup-window]').addEventListener('click', function (event) {
+			event.stopPropagation();
+		});
+	});
+}
+showPopup();
