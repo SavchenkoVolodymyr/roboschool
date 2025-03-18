@@ -45,6 +45,42 @@ function coachesSlider() {
 }
 coachesSlider();
 
+function scrollBarNav() {
+	const scrollBar = document.querySelector('.scroll_bar');
+	const scroll = document.querySelector('.scroll_bar').firstElementChild;
+
+	scroll.onmousedown = function (e) {
+		e.preventDefault();
+		let shiftX = e.clientX - scroll.getBoundingClientRect().left;
+
+		document.addEventListener('mousemove', mouseMowe);
+		document.addEventListener('mouseup', mouseUp);
+
+		function mouseMowe(e) {
+			let newLeft = e.clientX - shiftX - scrollBar.getBoundingClientRect().left;
+			if (newLeft < 0) {
+				newLeft = 0;
+			}
+
+			let rightEdge = scrollBar.offsetWidth - scroll.offsetWidth;
+			if (newLeft > rightEdge) {
+				newLeft = rightEdge;
+			}
+			scroll.style.left = newLeft + 'px';
+		}
+		function mouseUp() {
+			document.removeEventListener('mouseup', mouseUp);
+			document.removeEventListener('mousemove', mouseMowe);
+		}
+		scroll.ondragstart = function () {
+			return false;
+		};
+	};
+}
+scrollBarNav();
+
+// for tabs
+
 function cardTabs() {
 	const tabsBox = document.querySelectorAll('.tabs');
 	tabsBox.forEach(function (tabs) {
@@ -69,6 +105,8 @@ function cardTabs() {
 	});
 }
 cardTabs();
+
+// for popup
 
 function showPopup() {
 	const popupButtonAll = document.querySelectorAll('[data-popup-button]');
