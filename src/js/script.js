@@ -11,6 +11,7 @@ function coachesSlider() {
 	const numberOfElem = document.querySelectorAll('.slider__element').length;
 	const btnPrev = document.querySelector('.slider_nav__prew');
 	const btnNext = document.querySelector('.slider_nav__next');
+	const scrollBar = document.querySelector('.scroll_bar');
 	const scrollBarWidht = document.querySelector('.scroll_bar').clientWidth;
 	const scroll = document.querySelector('.scroll_bar').firstElementChild;
 
@@ -26,7 +27,6 @@ function coachesSlider() {
 			scrollOfset = 0;
 		}
 		scroll.style.left = scrollOfset + 'px';
-		// scrollSlider ()
 	});
 	btnPrev.addEventListener('click', function () {
 		offset = offset - (elemWidht + gap);
@@ -40,14 +40,7 @@ function coachesSlider() {
 			scrollOfset = scrollBarWidht - scroll.clientWidth;
 		}
 		scroll.style.left = scrollOfset + 'px';
-		// scrollSlider ()
 	});
-}
-coachesSlider();
-
-function scrollBarNav() {
-	const scrollBar = document.querySelector('.scroll_bar');
-	const scroll = document.querySelector('.scroll_bar').firstElementChild;
 
 	scroll.onmousedown = function (e) {
 		e.preventDefault();
@@ -59,14 +52,40 @@ function scrollBarNav() {
 		function mouseMowe(e) {
 			let newLeft = e.clientX - shiftX - scrollBar.getBoundingClientRect().left;
 			if (newLeft < 0) {
-				newLeft = 0;
+				scrollOfset = 0;
+			}
+			if (
+				newLeft > 0.6 * ((scrollBarWidht - scroll.clientWidth) / 2) &&
+				newLeft <= (scrollBarWidht - scroll.clientWidth) / 2
+			) {
+				scrollOfset = (scrollBarWidht - scroll.clientWidth) / 2;
+				offset = elemWidht + gap;
+			}
+			if (newLeft < 0.6 * ((scrollBarWidht - scroll.clientWidth) / 2)) {
+				scrollOfset = 0;
+				offset = 0;
 			}
 
 			let rightEdge = scrollBar.offsetWidth - scroll.offsetWidth;
 			if (newLeft > rightEdge) {
-				newLeft = rightEdge;
+				scrollOfset = rightEdge;
 			}
-			scroll.style.left = newLeft + 'px';
+			if (
+				newLeft > 0.6 * (scrollBarWidht - scroll.clientWidth) &&
+				newLeft <= scrollBarWidht - scroll.clientWidth
+			) {
+				scrollOfset = scrollBarWidht - scroll.clientWidth;
+				offset = (elemWidht + gap) * 2;
+			}
+			if (
+				newLeft > (scrollBarWidht - scroll.clientWidth) / 2 &&
+				newLeft < 0.6 * (scrollBarWidht - scroll.clientWidth)
+			) {
+				scrollOfset = (scrollBarWidht - scroll.clientWidth) / 2;
+				offset = elemWidht + gap;
+			}
+			sliderLine.style.left = -offset + 'px';
+			scroll.style.left = scrollOfset + 'px';
 		}
 		function mouseUp() {
 			document.removeEventListener('mouseup', mouseUp);
@@ -77,7 +96,7 @@ function scrollBarNav() {
 		};
 	};
 }
-scrollBarNav();
+coachesSlider();
 
 // for tabs
 
